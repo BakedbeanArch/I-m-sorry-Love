@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Dearest Wife</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- Background Layer for Floating Hearts -->
+    <div class="hearts-container" id="heartContainer"></div>
+
+    <main class="card-container">
+        <!-- Photo Section -->
+        <div class="photo-frame">
+            <!-- Ensure your photo is named 'us.jpg' in the same folder -->
+            <img src="us.jpg" alt="Our Memory" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=80'">
+        </div>
+
+        <section class="content">
+            <h1>I'm So Sorry, My Love</h1>
+            
+            <div class="message-body">
+                <p>My Dearest [Wife's Name],</p>
+                <p>I’ve been doing a lot of thinking, and I realized how much I messed up. I never want to be the reason behind your sadness or the cause of a frown on your beautiful face.</p>
+                <p>You mean the world to me, and your happiness is my top priority. Please forgive me for my mistakes. I promise to listen better, love harder, and be the man you deserve.</p>
+                
+                <span class="signature">— Forever Yours, [Your Name]</span>
+            </div>
+
+            <div class="interactive-btns">
+                <button class="btn btn-love" onclick="handleLoveClick()">I Love You</button>
+                <button class="btn btn-forgive" id="forgiveBtn" onclick="handleForgiveClick()">I Forgive You</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
