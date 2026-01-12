@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Dearest Wife</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff758c;
+            --secondary-color: #ff7eb3;
+            --text-color: #4a4a4a;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            color: var(--text-color);
+        }
+
+        /* Floating Hearts Background */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            color: var(--primary-color);
+            opacity: 0.3;
+            animation: float 6s infinite ease-in;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        /* Main Container */
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            margin: 20px;
+            transform: translateY(20px);
+            animation: fadeIn 1.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Image Styling */
+        .photo-frame {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 10px 20px rgba(255, 117, 140, 0.3);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #fff;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #d63384;
+        }
+
+        .message-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #555;
+            text-align: left;
+            font-weight: 300;
+        }
+
+        .italic {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            display: block;
+            margin-top: 15px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 117, 140, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 117, 140, 0.6);
+        }
+
+        #forgiveBtn {
+            background: #fff;
+            color: #ff758c;
+            border: 2px solid #ff758c;
+        }
+
+        #forgiveBtn:hover {
+            background: #fff0f3;
+        }
+
+        /* Interactive Modal */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .modal {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="hearts" id="heartContainer"></div>
+
+    <div class="container">
+        <div class="photo-frame">
+            <!-- REPLACE 'us.jpg' WITH YOUR PHOTO FILENAME -->
+            <img src="us.jpg" alt="Our Memory" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=80'">
+        </div>
+
+        <h1>I'm So Sorry, My Love</h1>
+        
+        <div class="message-content">
+            <p>My Dearest [Wife's Name],</p>
+            <br>
+            <p>I’ve been doing a lot of thinking, and I realized how much I messed up. I never want to be the reason behind your sadness or the cause of a frown on your beautiful face.</p>
+            <br>
+            <p>You mean the world to me, and your happiness is my top priority. Please forgive me for my mistakes. I promise to listen better, love harder, and be the man you deserve.</p>
+            
+            <span class="italic">— Forever Yours, [Your Name]</span>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="showLove()">I Love You</button>
+            <button class="btn" id="forgiveBtn" onclick="acceptApology()">I Forgive You</button>
+        </div>
+    </div>
+
+    <script>
+        // Create Floating Hearts
+        function createHearts() {
+            const container = document.getElementById('heartContainer');
+            const heartIcons = ['❤️', '💖', '🌸', '✨', '💕'];
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                    heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                    container.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 6000);
+                }, i * 300);
+            }
+        }
+        setInterval(createHearts, 3000);
+        createHearts();
+
+        // Button Functions
+        function showLove() {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#ff758c', '#ff7eb3', '#ffced6']
+            });
+        }
+
+        function acceptApology() {
+            const btn = document.getElementById('forgiveBtn');
+            btn.innerHTML = "Thank You! ❤️";
+            btn.style.background = "#4CAF50";
+            btn.style.color = "white";
+            btn.style.borderColor = "#4CAF50";
+            
+            confetti({
+                particleCount: 200,
+                spread: 160,
+                origin: { y: 0.6 }
+            });
+
+            setTimeout(() => {
+                alert("You've made me the happiest person again. I love you!");
+            }, 500);
+        }
+    </script>
+</body>
+  </html>
